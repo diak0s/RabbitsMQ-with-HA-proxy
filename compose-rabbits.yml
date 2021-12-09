@@ -1,0 +1,71 @@
+version: "3.9"
+services:
+  rabbit1:
+    image: rabbitmq:3.9-management
+    hostname: rabbit1
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "DFASDFASOIUERNCVKSLDFGKJQWER"
+      RABBITMQ_NODENAME: rabbit1
+      TCP_PORTS: "5672,15672"
+    volumes:
+      - "./rabbitmq.config:/etc/rabbitmq/rabbitmq.config"
+      - "./definitions.json:/etc/rabbitmq/definitions.json"
+    ports:
+      - 4369:4369
+      - 5671:5671
+      - 5672:5672
+      - 15672:15672
+      - 25672:25672
+    networks:
+      - rabbitmq-cluster
+
+  rabbit2:
+    image: rabbitmq:3-management
+    hostname: rabbit2
+    depends_on:
+      - rabbit1
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "DFASDFASOIUERNCVKSLDFGKJQWER"
+      RABBITMQ_NODENAME: rabbit2
+      CLUSTERED: 'true'
+      CLUSTER_WITH: rabbit1
+      TCP_PORTS: "5672"
+    volumes:
+      - "./rabbitmq.config:/etc/rabbitmq/rabbitmq.config"
+      - "./definitions.json:/etc/rabbitmq/definitions.json"
+    ports:
+      - 4370:4369
+      - 5673:5671
+      - 5674:5672
+      - 15673:15672
+      - 25673:25672
+    networks:
+      - rabbitmq-cluster
+    
+  rabbit3:
+    image: rabbitmq:3-management
+    hostname: rabbit3
+    depends_on:
+      - rabbit1
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "DFASDFASOIUERNCVKSLDFGKJQWER"
+      RABBITMQ_NODENAME: rabbit3
+      CLUSTERED: 'true'
+      CLUSTER_WITH: rmq1
+      TCP_PORTS: "5672"
+    volumes:
+      - "./rabbitmq.config:/etc/rabbitmq/rabbitmq.config"
+      - "./definitions.json:/etc/rabbitmq/definitions.json"
+    ports:
+      - 4371:4369
+      - 5675:5671
+      - 5676:5672
+      - 15674:15672
+      - 25674:25672
+    networks:
+      - rabbitmq-cluster   
+        
+networks:
+  rabbitmq-cluster:
+    external:
+      name: rabbitmq-cluster
