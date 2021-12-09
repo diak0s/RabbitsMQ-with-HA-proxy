@@ -11,8 +11,8 @@ services:
     environment:
       - TZ=Asia/Shanghai
     extra_hosts:
-      - rabbitmq1:192.168.1.12
-      - rabbitmq2:192.168.1.12
-      - rabbitmq3:192.168.1.12
+      - rabbitmq1:10.0.80.20
+      - rabbitmq2:10.0.80.20
+      - rabbitmq3:10.0.80.20
     volumes:
       - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro

@@ -29,11 +29,8 @@ docker run -d --net rabbits `
 -e RABBITMQ_ERLANG_COOKIE=JFKDUJRHFUTUGJFHKIEUR `
 --hostname rabbit-1 `
 --name rabbit-1 `
--p 4369:4369 `
--p 5671:5671 `
 -p 5672:5672 `
 -p 15672:15672 `
--p 25672:25672 `
 rabbitmq:3.8-management
 
 docker run -d --net rabbits `
@@ -42,11 +39,8 @@ docker run -d --net rabbits `
 -e RABBITMQ_ERLANG_COOKIE=JFKDUJRHFUTUGJFHKIEUR `
 --hostname rabbit-2 `
 --name rabbit-2 `
--p 4370:4369 `
--p 5673:5671 `
 -p 5674:5672 `
 -p 15673:15672 `
--p 25673:25672 `
 rabbitmq:3.8-management
 
 docker run -d --net rabbits `
@@ -55,11 +49,8 @@ docker run -d --net rabbits `
 -e RABBITMQ_ERLANG_COOKIE=JFKDUJRHFUTUGJFHKIEUR `
 --hostname rabbit-3 `
 --name rabbit-3 `
--p 4371:4369 `
--p 5675:5671 `
 -p 5676:5672 `
 -p 15674:15672 `
--p 25674:25672 `
 rabbitmq:3.8-management
 
 #NODE 1 : MANAGEMENT http://localhost:15672
