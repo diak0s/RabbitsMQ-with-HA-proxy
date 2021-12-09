@@ -1,0 +1,18 @@
+version: '3'
+services:
+  haproxy:
+    container_name: mcst-haproxy
+    image: haproxy:2.1
+    restart: always
+    ports:
+      - 8100:8100
+      - 5670:5670
+      - 15670:15670
+    environment:
+      - TZ=Asia/Shanghai
+    extra_hosts:
+      - rabbitmq1:192.168.1.12
+      - rabbitmq2:192.168.1.12
+      - rabbitmq3:192.168.1.12
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro

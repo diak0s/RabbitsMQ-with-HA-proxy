@@ -1,7 +1,0 @@
-version: "3"
-services:
-    haproxy:
-        build: ./haproxy
-        container_name: haproxy
-        ports:
-            - "80:80"
