@@ -23,7 +23,7 @@ Remember we will need the Erlang Cookie to allow instances to authenticate with 
 # Automated Clustering
 
 ```
-docker run -d --rm --net rabbits `
+docker run -d --net rabbits `
 -v ${PWD}/config/rabbit-1/:/config/ `
 -e RABBITMQ_CONFIG_FILE=/config/rabbitmq `
 -e RABBITMQ_ERLANG_COOKIE=JFKDUJRHFUTUGJFHKIEUR `
@@ -36,7 +36,7 @@ docker run -d --rm --net rabbits `
 -p 25672:25672 `
 rabbitmq:3.8-management
 
-docker run -d --rm --net rabbits `
+docker run -d --net rabbits `
 -v ${PWD}/config/rabbit-2/:/config/ `
 -e RABBITMQ_CONFIG_FILE=/config/rabbitmq `
 -e RABBITMQ_ERLANG_COOKIE=JFKDUJRHFUTUGJFHKIEUR `
@@ -49,7 +49,7 @@ docker run -d --rm --net rabbits `
 -p 25673:25672 `
 rabbitmq:3.8-management
 
-docker run -d --rm --net rabbits `
+docker run -d --net rabbits `
 -v ${PWD}/config/rabbit-3/:/config/ `
 -e RABBITMQ_CONFIG_FILE=/config/rabbitmq `
 -e RABBITMQ_ERLANG_COOKIE=JFKDUJRHFUTUGJFHKIEUR `
