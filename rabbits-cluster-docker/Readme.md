@@ -26,7 +26,7 @@ Remember we will need the Erlang Cookie to allow instances to authenticate with 
 docker run -d --net rabbits `
 -v ${PWD}/config/rabbit-1/:/config/ `
 -e RABBITMQ_CONFIG_FILE=/config/rabbitmq `
--e RABBITMQ_ERLANG_COOKIE=JFKDUJRHFUTUGJFHKIEUR `
+-e RABBITMQ_ERLANG_COOKIE=UGDWOSMLGTHMJTNCYMWI `
 --hostname rabbit-1 `
 --name rabbit-1 `
 -p 5672:5672 `
@@ -36,7 +36,7 @@ rabbitmq:3.8-management
 docker run -d --net rabbits `
 -v ${PWD}/config/rabbit-2/:/config/ `
 -e RABBITMQ_CONFIG_FILE=/config/rabbitmq `
--e RABBITMQ_ERLANG_COOKIE=JFKDUJRHFUTUGJFHKIEUR `
+-e RABBITMQ_ERLANG_COOKIE=UGDWOSMLGTHMJTNCYMWI `
 --hostname rabbit-2 `
 --name rabbit-2 `
 -p 5674:5672 `
@@ -46,7 +46,7 @@ rabbitmq:3.8-management
 docker run -d --net rabbits `
 -v ${PWD}/config/rabbit-3/:/config/ `
 -e RABBITMQ_CONFIG_FILE=/config/rabbitmq `
--e RABBITMQ_ERLANG_COOKIE=JFKDUJRHFUTUGJFHKIEUR `
+-e RABBITMQ_ERLANG_COOKIE=UGDWOSMLGTHMJTNCYMWI `
 --hostname rabbit-3 `
 --name rabbit-3 `
 -p 5676:5672 `
