@@ -29,29 +29,29 @@ sudo apt-get install -y erlang-base \
 
 sudo apt-get install rabbitmq-server -y --fix-missing
 
-
+------------- ## Services  ------------------------------------
 sudo systemctl enable rabbitmq-server
 sudo systemctl start rabbitmq-server
 sudo systemctl stop rabbitmq-server
+sudo systemctl status rabbitmq-server
+sudo systemctl restart rabbitmq-server
 
 ------------- ## Install management ------------------------------------
 sudo rabbitmq-plugins enable rabbitmq_management
-sudo rabbitmqctl add_user nikos 1234 
-sudo rabbitmqctl set_user_tags nikos administrator
-sudo rabbitmqctl set_permissions -p / nikos ".*" ".*" ".*"
+sudo rabbitmqctl add_user Egrit0sUser ASDFASDFADSFAASDF
+sudo rabbitmqctl change_password Egrit0sUser 66Z2ZfxfyskwRRZK
+sudo rabbitmqctl set_user_tags Egrit0sUser administrator
+sudo rabbitmqctl set_permissions -p / Egrit0sUser ".*" ".*" ".*"
 
-
-------------- edit config file -----------------------------------
-
-
-
+sudo rabbitmq-plugins enable rabbitmq_federation
 
 ------------- ## erlang cookie ------------------------------------
 
 sudo rabbitmq-diagnostics erlang_cookie_sources
 
 -- get the cookie
-sudo nano /var/lib/rabbitmq/.erlang.cookie --UGDWOSMLGTHMJTNCYMWI
+sudo nano /var/lib/rabbitmq/.erlang.cookie --RVRIRRAPZHOJJLWQVJTN
+
 
 
 -- diagnostics 

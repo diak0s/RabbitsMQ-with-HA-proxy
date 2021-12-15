@@ -72,7 +72,7 @@ https://www.rabbitmq.com/ha.html#unsynchronised-mirrors
 docker exec -it rabbit-1 bash
 
 rabbitmqctl set_policy ha-fed \
-    ".*" '{"federation-upstream-set":"all", "ha-sync-mode":"automatic", "ha-mode":"nodes", "ha-params":["rabbit@rabbit-1","rabbit@rabbit-2","rabbit@rabbit-3"]}' \
+    ".*" '{"federation-upstream-set":"all", "ha-sync-mode":"automatic", "ha-mode":"nodes", "ha-params":["rabbit@KedeGovAppE9Db1","rabbit@KedeGovAppE9Db2","rabbit@KedeGovAppE9Db3"]}' \
     --priority 1 \
     --apply-to queues
 ```
@@ -89,3 +89,6 @@ docker rm -f rabbit-1
 docker rm -f rabbit-2
 docker rm -f rabbit-3
 ```
+rabbit@KedeGovAppE9Db1
+rabbit@KedeGovAppE9Db2
+rabbit@KedeGovAppE9Db3
